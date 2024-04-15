@@ -32,7 +32,6 @@ def main(keywords):
         display_name = author_data_dict[author]["display_name"]
         hindex = sorted_hindex_dict[author]
         if count < 5:
-            print(
-                f"{count+1}) {display_name}, \
-                  orcid: {author}, h-index: {hindex}"
-            )
+            author_name_str = f"{count+1}) {display_name},"
+            author_info_str = f"orcid: {author}, h-index: {hindex}"
+            print(author_name_str + " " + author_info_str)
