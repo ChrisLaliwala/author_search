@@ -13,13 +13,13 @@ from .utils import get_works, get_h_index, make_author_list, sort_authors
 )
 @click.argument("keywords", nargs=-1, type=click.STRING)
 @click.option(
-    "--num_authors", default=5, help="max no. of authors that can be returned."
+    "--num_authors", default=5, help="max no. of authors that can be returned (defualt is 5)."
 )
 @click.option(
     "--save_output_file",
     default=None,
     type=click.Path(),
-    help="specify path to file where output will be saved.",
+    help="specify path to file where output will be saved (default is None).",
 )
 def main(keywords, num_authors, save_output_file):
     """Command line utility that searches for authors from keywords."""
