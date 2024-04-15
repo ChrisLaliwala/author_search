@@ -33,7 +33,7 @@ jobs:
         black .
     - name: Lint with pylint
       run: |
-        pylint . 
+        pylint . --recursive=y
     - name: Test with pytest
       run: |
-        pytest
+        pytest .
