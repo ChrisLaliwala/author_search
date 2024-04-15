@@ -22,8 +22,7 @@ def get_works(keywords):
     data_list = []
     for keyword in keywords:
         time.sleep(0.1)
-        query = "+".join(keyword.split())
-        url = f"https://api.openalex.org/works?filter=keywords.keyword:{query}"
+        url = f"https://api.openalex.org/works?filter=keywords.keyword:{keyword}"
         req = requests.get(url)
         data = req.json()
         data_list.append(data)
