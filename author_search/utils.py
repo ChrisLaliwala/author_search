@@ -9,7 +9,7 @@ def get_works(keywords):
     """
     Function that takes in keywords and returns
     works data from openAlex.
-    """
+    """ 
     # make sure no more than 3 keywords have been passed.
     if len(keywords) > 3:
         sys.exit("ERROR. More than three keywords have been chosen.")
