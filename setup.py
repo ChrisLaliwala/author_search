@@ -8,6 +8,10 @@ setup(
     maintainer_email="claliwal@andrew.cmu.edu",
     license="MIT",
     packages=["author_search"],
+    install_requires=[
+        "click",
+        "requests",
+    ],
     entry_points={"console_scripts": ["author_search = author_search.main:main"]},
     long_descript="""
     This package contains a command line utility that allows users to search
