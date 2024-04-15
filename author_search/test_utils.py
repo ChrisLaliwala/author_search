@@ -37,7 +37,7 @@ def test_get_works():
 
     first_elem_test = test_data["results"][0]
 
-    data_list = get_works(("outer-approximation",))
+    data_list, _ = get_works(("outer-approximation",))
     data = data_list[0]
     first_elem = data["results"][0]
 

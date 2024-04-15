@@ -13,7 +13,10 @@ def get_works(keywords):
     if len(keywords) > 3:
         sys.exit("ERROR. More than three keywords have been chosen.")
 
-    print("The keyword(s) that will be used in the search is/are: ", keywords)
+    keyword_search_str = (
+        f"The keyword(s) that will be used in the search is/are: {keywords}"
+    )
+    print(keyword_search_str)
 
     data_list = []
     for keyword in keywords:
@@ -24,7 +27,7 @@ def get_works(keywords):
         data = req.json()
         data_list.append(data)
 
-    return data_list
+    return data_list, keyword_search_str
 
 
 def make_author_list(data_list):
