@@ -1,9 +1,14 @@
-import requests
+"""Define utility functions for our package."""
 import time
 import sys
+import requests
 
 
 def get_works(keywords):
+    """
+    Function that takes in keywords and returns
+    works data from openAlex.
+    """
     # make sure no more than 3 keywords have been passed.
     if len(keywords) > 3:
         sys.exit("ERROR. More than three keywords have been chosen.")
@@ -20,16 +25,12 @@ def get_works(keywords):
     return data
 
 
-def get_h_index(author):
-    time.sleep(0.1)
-    url = f"https://api.openalex.org/authors/https://orcid.org/{author}"
-    req = requests.get(url)
-    data = req.json()
-
-    return data, data["summary_stats"]["h_index"]
-
-
 def make_author_list(data):
+    """
+    Function that makes a list of authors
+    based on the works that were returned
+    from openAlex.
+    """
     author_list = []
     for work in data["results"]:
         for author in work["authorships"]:
@@ -46,7 +47,23 @@ def make_author_list(data):
     return author_list
 
 
+def get_h_index(author):
+    """
+    Function that returns the h-index of an author.
+    """
+    time.sleep(0.1)
+    url = f"https://api.openalex.org/authors/https://orcid.org/{author}"
+    req = requests.get(url)
+    data = req.json()
+
+    return data, data["summary_stats"]["h_index"]
+
+
 def sort_authors(hindex_dict):
+    """
+    This function takes in an unsorted dictionary of
+    authors and sorts them in descending order by h-index.
+    """
     # sort authors by h_index in descending order.
     sorted_h_index_dict = dict(
         sorted(hindex_dict.items(), key=lambda x: x[1], reverse=True)

@@ -1,3 +1,4 @@
+"""Contains command line utility"""
 import click
 from .utils import get_works, get_h_index, make_author_list, sort_authors
 
@@ -8,8 +9,10 @@ from .utils import get_works, get_h_index, make_author_list, sort_authors
 )
 @click.argument("keywords", nargs=-1, type=click.STRING)
 def main(keywords):
+    """Command line utility that searches for authors from keywords."""
     # get works related to chosen keywords
     data = get_works(keywords)
+
     # make a list of authors associated with those works
     author_list = make_author_list(data)
 
