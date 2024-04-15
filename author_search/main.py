@@ -5,10 +5,11 @@ from .utils import get_works, get_h_index, make_author_list, sort_authors
 
 
 @click.command(
-    help="Search for authors with keywords. Pass up to 3 strings. \
-        Adding more keywords will expand search \
-        (all authors associated with any keyword will be returned). \
-        Ex: author_search choose, 'three keywords', max"
+    help="""Search for authors with keywords. Pass up to 3 strings. 
+        Adding more keywords will expand search 
+        (all authors associated with any keyword will be returned). 
+        Ex: author_search choose, 'three keywords', max
+        """
 )
 @click.argument("keywords", nargs=-1, type=click.STRING)
 @click.option(
@@ -64,10 +65,8 @@ def main(keywords, num_authors, save_output_file):
                 file.write("\n")
                 file.write(authors_found_str)
                 file.write("\n")
-
                 for str in str_list:
                     file.write("\n")
                     file.write(str)
-
         except Exception as error:
             click.echo(f"Error writing file: {error}")
