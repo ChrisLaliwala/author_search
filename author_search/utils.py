@@ -1,4 +1,5 @@
 """Define utility functions for our package."""
+
 import time
 import sys
 import requests
