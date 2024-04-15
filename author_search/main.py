@@ -1,6 +1,6 @@
 """Contains command line utility"""
 
-import click
+import click 
 from .utils import get_works, get_h_index, make_author_list, sort_authors
 
 
@@ -13,7 +13,9 @@ from .utils import get_works, get_h_index, make_author_list, sort_authors
 )
 @click.argument("keywords", nargs=-1, type=click.STRING)
 @click.option(
-    "--num_authors", default=5, help="max no. of authors that can be returned (defualt is 5)."
+    "--num_authors",
+    default=5,
+    help="max no. of authors that can be returned (defualt is 5).",
 )
 @click.option(
     "--save_output_file",
