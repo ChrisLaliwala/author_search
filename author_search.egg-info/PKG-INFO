@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: author-search
+Version: 0.0.1
+Summary: author search utility command line utility
+Maintainer: Chris Laliwala
+Maintainer-email: claliwal@andrew.cmu.edu
+License: MIT
+License-File: LICENSE
