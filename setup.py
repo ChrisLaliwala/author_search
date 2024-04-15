@@ -9,7 +9,8 @@ setup(
     license="MIT",
     packages=["author_search"],
     entry_points={"console_scripts": ["author_search = author_search.main:main"]},
-    long_descript="""\
-author command line utility
-============================""",
+    long_descript="""
+    This package contains a command line utility that allows users to search
+    for authors using keywords.
+    """,
 )
