@@ -1,6 +1,6 @@
 """Contains command line utility"""
 
-import click 
+import click
 from .utils import get_works, get_h_index, make_author_list, sort_authors
 
 
