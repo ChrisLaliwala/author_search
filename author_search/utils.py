@@ -35,9 +35,10 @@ def make_author_list(data):
         for author in work["authorships"]:
             author_id = author["author"]["orcid"]
 
-            # check to see if author is already added to list to avoid duplicates.
+            # check to see if author is
+            # already added to list to avoid duplicates.
             # check to see if author has an orcid, if not, won't be added.
-            if ((author_id in author_list) == False) and (author_id != None):
+            if (author_id in author_list is False) and (author_id is not None):
                 author_list.append(author_id)
 
     return author_list

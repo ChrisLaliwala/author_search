@@ -3,11 +3,11 @@ from .utils import get_works, get_h_index, make_author_list, sort_authors
 
 
 @click.command(
-    help="author keywords. Pass up to 3 separated by spaces. Ex: author_search three keywords max"
+    help="author keywords. Pass up to 3 separated by spaces. \
+        Ex: author_search three keywords max"
 )
 @click.argument("keywords", nargs=-1, type=click.STRING)
 def main(keywords):
-
     # get works related to chosen keywords
     data = get_works(keywords)
     # make a list of authors associated with those works
@@ -32,4 +32,7 @@ def main(keywords):
         display_name = author_data_dict[author]["display_name"]
         hindex = sorted_hindex_dict[author]
         if count < 5:
-            print(f"{count+1}) {display_name}, orcid: {author}, h-index: {hindex}")
+            print(
+                f"{count+1}) {display_name}, \
+                  orcid: {author}, h-index: {hindex}"
+            )
