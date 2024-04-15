@@ -11,7 +11,6 @@ setup(
     install_requires=[
         "click",
         "requests",
-        "python",
     ],
     entry_points={"console_scripts": ["author_search = author_search.main:main"]},
     long_descript="""
