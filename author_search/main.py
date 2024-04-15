@@ -5,9 +5,9 @@ from .utils import get_works, get_h_index, make_author_list, sort_authors
 
 
 @click.command(
-    help="""Search for authors with keywords. Pass up to 3 strings. 
-        Adding more keywords will expand search 
-        (all authors associated with any keyword will be returned). 
+    help="""
+        Search for authors with keywords. Pass up to 3 strings. 
+        Adding more keywords will expand search (all authors associated with any keyword will be returned). 
         Ex: author_search choose, 'three keywords', max
         """
 )
