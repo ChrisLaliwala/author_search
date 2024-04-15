@@ -1,6 +1,6 @@
 author_search command line utility
 ==============
-This command line utility let's you search for authors with keywords.
+This command line utility let's you search for authors with keywords. Requires python=3.12
 
 Options:
 
