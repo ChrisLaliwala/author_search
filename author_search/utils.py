@@ -13,36 +13,39 @@ def get_works(keywords):
     if len(keywords) > 3:
         sys.exit("ERROR. More than three keywords have been chosen.")
 
-    # TEMPORARY
-    word = keywords[0]
-    print("The keyword that will be used in the search is: ", word)
-    query = "+".join(word.split())
+    print("The keyword(s) that will be used in the search is/are: ", keywords)
 
-    url = f"https://api.openalex.org/works?filter=keywords.keyword:{query}"
-    req = requests.get(url)
-    data = req.json()
+    data_list = []
+    for keyword in keywords:
+        time.sleep(0.1)
+        query = "+".join(keyword.split())
+        url = f"https://api.openalex.org/works?filter=keywords.keyword:{query}"
+        req = requests.get(url)
+        data = req.json()
+        data_list.append(data)
 
-    return data
+    return data_list
 
 
-def make_author_list(data):
+def make_author_list(data_list):
     """
     Function that makes a list of authors
     based on the works that were returned
     from openAlex.
     """
     author_list = []
-    for work in data["results"]:
-        for author in work["authorships"]:
-            author_id = author["author"]["orcid"]
-            # print(author_id)
+    for data in data_list:
+        for work in data["results"]:
+            for author in work["authorships"]:
+                author_id = author["author"]["orcid"]
+                # print(author_id)
 
-            # check to see if author is
-            # already added to list to avoid duplicates.
-            # check to see if author has an orcid, if not, won't be added.
-            if (author_id in author_list) is False:
-                if author_id is not None:
-                    author_list.append(author_id)
+                # check to see if author is
+                # already added to list to avoid duplicates.
+                # check to see if author has an orcid, if not, won't be added.
+                if (author_id in author_list) is False:
+                    if author_id is not None:
+                        author_list.append(author_id)
 
     return author_list
 
